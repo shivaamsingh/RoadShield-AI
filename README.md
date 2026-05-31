@@ -10,6 +10,18 @@ The project aims to support road safety analysis, smart city planning, and accid
 
 ---
 
+## Live Demo
+
+### API Endpoint
+
+https://roadshield-ai.onrender.com
+
+### API Documentation
+
+https://roadshield-ai.onrender.com/docs
+
+---
+
 ## Features
 
 * Road Risk Score Prediction using Machine Learning
@@ -17,7 +29,9 @@ The project aims to support road safety analysis, smart city planning, and accid
 * Exploratory Data Analysis (EDA)
 * Feature Importance Analysis
 * Interactive Geospatial Visualization
-* FastAPI Backend (In Progress)
+* FastAPI REST API
+* Public Cloud Deployment (Render)
+* Swagger API Documentation
 * React Dashboard (Planned)
 
 ---
@@ -55,33 +69,58 @@ Performance:
 
 ---
 
+## API Example
+
+### Request
+
+```json
+{
+  "city": "Delhi",
+  "hour": 18,
+  "day_of_week": "Monday",
+  "is_weekend": 0,
+  "road_type": "urban",
+  "lanes": 4,
+  "traffic_signal": 1,
+  "weather": "rain",
+  "visibility": 3,
+  "temperature": 28,
+  "traffic_density": "high",
+  "vehicles_involved": 2,
+  "is_peak_hour": 1
+}
+```
+
+### Response
+
+```json
+{
+  "risk_score": 0.603,
+  "risk_level": "Medium"
+}
+```
+
+---
+
 ## Project Structure
 
+```text
 RoadShield-AI/
-
+│
 ├── backend/
-
 ├── frontend/
-
 ├── data/
-
 ├── docs/
-
 ├── models/
-
+│   └── risk_model.pkl
 ├── notebooks/
-
 │   ├── EDA.ipynb
-
 │   ├── risk_model.ipynb
-
 │   └── hotspot_detection.ipynb
-
 ├── screenshots/
-
 ├── README.md
-
 └── requirements.txt
+```
 
 ---
 
@@ -95,11 +134,17 @@ RoadShield-AI/
 
 ✅ Hotspot Detection
 
-🔄 FastAPI Backend
+✅ FastAPI Backend
+
+✅ Public API Deployment
+
+✅ Swagger Documentation
 
 🔄 React Dashboard
 
-🔄 Deployment
+🔄 Real-Time Route Risk Prediction
+
+🔄 Weather API Integration
 
 ---
 
@@ -107,10 +152,12 @@ RoadShield-AI/
 
 * Real-time weather integration
 * Live traffic APIs
-* Interactive dashboard
+* Interactive React dashboard
 * City-wise risk analysis
-* Real-time route risk prediction
-* Cloud deployment
+* Route-level risk prediction
+* GPS-based risk monitoring
+* Docker deployment
+* CI/CD pipeline
 
 ---
 
@@ -120,15 +167,21 @@ RoadShield-AI/
 * Pandas
 * NumPy
 * Scikit-learn
+* FastAPI
+* Uvicorn
 * Jupyter Notebook
 * Folium
-* FastAPI
+* Render
 * React (Planned)
 
 ---
 
 ## Author
 
-Shivam Singh
+**Shivam Singh**
 
 B.Tech CSE (AI & ML)
+
+---
+
+If you find this project useful, consider giving it a ⭐ on GitHub.
