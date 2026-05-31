@@ -14,27 +14,44 @@ def home():
         "message": "RoadShield AI API Running"
     }
 
+
 @app.post("/predict")
 def predict(data: RiskInput):
 
     values = [[
-        data.city,
+        CITY_MAP[data.city],
         data.hour,
-        data.day_of_week,
+        DAY_MAP[data.day_of_week],
         data.is_weekend,
-        data.road_type,
+        ROAD_MAP[data.road_type],
         data.lanes,
         data.traffic_signal,
-        data.weather,
+        WEATHER_MAP[data.weather],
         data.visibility,
         data.temperature,
-        data.traffic_density,
+        TRAFFIC_MAP[data.traffic_density],
         data.vehicles_involved,
         data.is_peak_hour
     ]]
 
-    prediction = model.predict(values)[0]
+    risk = float(model.predict(values)[0])
+
+    if risk < 0.4:
+        level = "Low"
+    elif risk < 0.7:
+        level = "Medium"
+    else:
+        level = "High"
 
     return {
-        "risk_score": round(float(prediction), 3)
+        "risk_score": round(risk, 3),
+        "risk_level": level
     }
+
+from encoders import (
+    CITY_MAP,
+    DAY_MAP,
+    ROAD_MAP,
+    WEATHER_MAP,
+    TRAFFIC_MAP
+)

@@ -1,16 +1,16 @@
 from pydantic import BaseModel
 
 class RiskInput(BaseModel):
-    city: int
+    city: str
     hour: int
-    day_of_week: int
+    day_of_week: str
     is_weekend: int
-    road_type: int
+    road_type: str
     lanes: int
     traffic_signal: int
-    weather: int
+    weather: str
     visibility: float
     temperature: float
-    traffic_density: int
+    traffic_density: str
     vehicles_involved: int
     is_peak_hour: int
