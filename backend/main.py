@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from model_loader import model
-from schemas import RiskInput
+from backend.model_loader import model
+from backend.schemas import RiskInput
 
 app = FastAPI(
     title="RoadShield AI",
@@ -48,7 +48,7 @@ def predict(data: RiskInput):
         "risk_level": level
     }
 
-from encoders import (
+from backend.encoders import (
     CITY_MAP,
     DAY_MAP,
     ROAD_MAP,
