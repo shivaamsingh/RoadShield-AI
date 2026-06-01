@@ -128,6 +128,9 @@ The project aims to support road safety analysis, smart city planning, and accid
 ### Hotspot Detection
 ![Hotspot Detection](screenshots/hotspot_detection.png)
 
+### Interactive Hotspot Map
+![Hotspot Map](screenshots/hotspot_map.png)
+
 ---
 
 ## Project Structure
