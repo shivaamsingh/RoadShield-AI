@@ -1,14 +1,23 @@
-import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import {
+  MapContainer,
+  TileLayer,
+  CircleMarker,
+  Popup,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-const hotspots = [
-  { city: "Delhi", lat: 28.6139, lng: 77.2090, risk: "High" },
-  { city: "Mumbai", lat: 19.0760, lng: 72.8777, risk: "Medium" },
-  { city: "Bangalore", lat: 12.9716, lng: 77.5946, risk: "High" },
-  { city: "Chennai", lat: 13.0827, lng: 80.2707, risk: "Low" },
-];
-
 export default function HotspotMap() {
+  const [hotspots, setHotspots] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://roadshield-ai.onrender.com/hotspots")
+      .then((res) => setHotspots(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <MapContainer
       center={[22.5937, 78.9629]}
