@@ -8,6 +8,7 @@ import "./App.css";
 
 import RiskAnalytics from "./components/RiskAnalytics";
 
+
 function App() {
   const [formData, setFormData] = useState({
     city: "Delhi",
