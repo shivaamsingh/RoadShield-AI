@@ -86,11 +86,60 @@ def predict(data: RiskInput):
         recommendations.append(
         "Road conditions appear relatively safe."
     )
-    print(recommendations)
+    explanation = []
+
+    if data.weather == "rain":
+        explanation.append("rainy weather")
+
+    if data.visibility < 5:
+        explanation.append(f"low visibility ({data.visibility} km)")
+
+    if data.traffic_density == "high":
+        explanation.append("high traffic density")
+
+    if data.is_peak_hour == 1:
+        explanation.append("peak-hour traffic")
+
+    if  explanation:
+        explanation_text = (
+        f"This route has a {level.lower()} accident risk because "
+        + ", ".join(explanation)
+        + " increase the likelihood of road incidents."
+    )
+    else:
+        explanation_text = (
+        "Current conditions indicate relatively safe travel."
+    )
+    explanation = []
+
+    if data.weather == "rain":
+        explanation.append("rainy weather")
+
+    if data.visibility < 5:
+        explanation.append(f"low visibility ({data.visibility} km)")
+
+    if data.traffic_density == "high":
+        explanation.append("high traffic density")
+
+    if data.is_peak_hour == 1:
+        explanation.append("peak-hour traffic")
+
+    if explanation:
+        explanation_text = (
+        f"This route has a {level.lower()} accident risk because "
+        + ", ".join(explanation)
+        + " increase the likelihood of road incidents."
+    )
+    else:
+        explanation_text = (
+        "Current conditions indicate relatively safe travel."
+    )
+    
     return {
     "risk_score": round(risk, 3),
     "risk_level": level,
-    "recommendations": recommendations
+    "recommendations": recommendations,
+    "explanation": explanation_text
 }
 
 from backend.encoders import (
