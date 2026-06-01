@@ -1,12 +1,22 @@
 from fastapi import FastAPI
 from backend.model_loader import model
 from backend.schemas import RiskInput
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="RoadShield AI",
     description="Road Risk Prediction API",
     version="1.0"
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.get("/")
 def home():
