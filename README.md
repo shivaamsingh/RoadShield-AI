@@ -35,7 +35,7 @@ The project combines Machine Learning, FastAPI, React, and Geospatial Visualizat
 
 ### Frontend Application
 
-🔗 https://road-shield-odtoybjiy-shiivamsingh.vercel.app
+🔗 https://road-shield-ai.vercel.app
 
 ### Backend API
 
