@@ -4,7 +4,7 @@ AI-powered Road Risk Prediction and Hotspot Detection System for Indian Roads.
 
 ## Overview
 
-RoadShield AI is a machine learning-based road safety platform that analyzes accident-related factors such as weather conditions, traffic density, visibility, road type, and peak-hour traffic to estimate road risk levels and identify accident hotspots.
+RoadShield AI is a machine learning-based road safety platform that analyzes accident-related factors such as weather conditions, traffic density, visibility, road type, temperature, and peak-hour traffic patterns to estimate road risk levels and identify accident hotspots.
 
 The project aims to support road safety analysis, smart city planning, and accident prevention through predictive analytics and geospatial insights.
 
@@ -12,7 +12,11 @@ The project aims to support road safety analysis, smart city planning, and accid
 
 ## Live Demo
 
-### API Endpoint
+### Frontend Application
+
+https://road-shield-odtoybjiy-shiivamsingh.vercel.app
+
+### Backend API
 
 https://roadshield-ai.onrender.com
 
@@ -30,9 +34,10 @@ https://roadshield-ai.onrender.com/docs
 * Feature Importance Analysis
 * Interactive Geospatial Visualization
 * FastAPI REST API
-* Public Cloud Deployment (Render)
+* React Frontend Dashboard
+* Real-Time Risk Prediction
+* Public Cloud Deployment (Render + Vercel)
 * Swagger API Documentation
-* React Dashboard (Planned)
 
 ---
 
@@ -50,12 +55,12 @@ https://roadshield-ai.onrender.com/docs
 
 ### Risk Score Prediction
 
-Model: Random Forest Regressor
+**Model:** Random Forest Regressor
 
-Performance:
+### Performance
 
-* R² Score: 0.88
-* Mean Absolute Error (MAE): 0.056
+* **R² Score:** 0.88
+* **Mean Absolute Error (MAE):** 0.056
 
 ### Most Important Features
 
@@ -102,40 +107,63 @@ Performance:
 
 ---
 
+## Screenshots
+
+### API Documentation
+
+![API Docs](screenshots/api_docs.png)
+
+### Risk Prediction Result
+
+![Prediction Result](screenshots/prediction_result.png)
+
+### Accident Hotspot Detection
+
+![Hotspot Detection](screenshots/hotspot_detection.png)
+
+### Cloud Deployment
+
+![Deployment](screenshots/deployment.png)
+
+---
+
 ## Project Structure
 
 ```text
 RoadShield-AI/
 │
 ├── backend/
+│   ├── main.py
+│   ├── schemas.py
+│   ├── encoders.py
+│   ├── model_loader.py
+│   └── requirements.txt
+│
 ├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
 ├── data/
+│
 ├── docs/
+│
 ├── models/
 │   └── risk_model.pkl
+│
 ├── notebooks/
 │   ├── EDA.ipynb
 │   ├── risk_model.ipynb
 │   └── hotspot_detection.ipynb
+│
 ├── screenshots/
+│
+├── render.yaml
 ├── README.md
 └── requirements.txt
 ```
 
 ---
-## Screenshots
-
-### API Documentation
-![API Docs](screenshots/api_docs.png)
-
-### Risk Prediction
-![Prediction](screenshots/prediction_result.png)
-
-### Hotspot Detection
-![Hotspot](screenshots/hotspot_detection.png)
-
-### Deployment
-![Deployment](screenshots/deployment.png)
 
 ## Project Status
 
@@ -145,15 +173,17 @@ RoadShield-AI/
 
 ✅ Risk Prediction Model
 
-✅ Hotspot Detection
+✅ Accident Hotspot Detection
 
 ✅ FastAPI Backend
 
+✅ React Frontend Dashboard
+
 ✅ Public API Deployment
 
-✅ Swagger Documentation
+✅ Swagger API Documentation
 
-🔄 React Dashboard
+✅ Frontend Deployment (Vercel)
 
 🔄 Real-Time Route Risk Prediction
 
@@ -163,29 +193,45 @@ RoadShield-AI/
 
 ## Future Improvements
 
-* Real-time weather integration
-* Live traffic APIs
-* Interactive React dashboard
-* City-wise risk analysis
-* Route-level risk prediction
-* GPS-based risk monitoring
-* Docker deployment
-* CI/CD pipeline
+* Real-time Weather API Integration
+* Live Traffic Data Integration
+* Route-Level Risk Prediction
+* City-Wise Risk Analytics
+* GPS-Based Risk Monitoring
+* Mobile Application
+* Docker Deployment
+* CI/CD Pipeline
 
 ---
 
 ## Tech Stack
 
+### Backend
+
 * Python
+* FastAPI
+* Uvicorn
+
+### Machine Learning
+
 * Pandas
 * NumPy
 * Scikit-learn
-* FastAPI
-* Uvicorn
-* Jupyter Notebook
+
+### Frontend
+
+* React
+* Vite
+* Axios
+
+### Visualization
+
 * Folium
+
+### Deployment
+
 * Render
-* React (Planned)
+* Vercel
 
 ---
 
@@ -195,6 +241,8 @@ RoadShield-AI/
 
 B.Tech CSE (AI & ML)
 
+GitHub: https://github.com/shivaamsingh
+
 ---
 
-If you find this project useful, consider giving it a ⭐ on GitHub.
+If you found this project useful, consider giving it a ⭐ on GitHub.
