@@ -109,10 +109,10 @@ https://roadshield-ai.onrender.com/docs
 
 ## Screenshots
 
-### Dashboard (Light Mode)
+### Dashboard (Dark Mode)
 ![Dark Dashboard](screenshots/prediction_dashboard_dark.png)
 
-### Dashboard (Dark Mode)
+### Dashboard (Light Mode)
 ![Light Dashboard](screenshots/prediction_dashboard_light.png)
 
 ### API Documentation
