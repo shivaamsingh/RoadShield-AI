@@ -31,6 +31,14 @@ The project combines Machine Learning, FastAPI, React, and Geospatial Visualizat
 
 ---
 
+## Portfolio Highlights
+
+- End-to-end AI/ML project with production deployment
+- Full-stack architecture using React and FastAPI
+- Interactive geospatial visualization with Leaflet
+- Machine Learning model with R² score of 0.88
+- Cloud deployment using Vercel and Render
+
 ## Live Demo
 
 ### Frontend Application
