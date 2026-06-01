@@ -109,21 +109,17 @@ https://roadshield-ai.onrender.com/docs
 
 ## Screenshots
 
-### API Documentation
+### Dashboard (Dark Mode)
+![Dark Dashboard](screenshots/prediction_dashboard_dark.png)
 
+### Dashboard (Light Mode)
+![Light Dashboard](screenshots/prediction_dashboard_light.png)
+
+### API Documentation
 ![API Docs](screenshots/api_docs.png)
 
-### Risk Prediction Result
-
-![Prediction Result](screenshots/prediction_result.png)
-
-### Accident Hotspot Detection
-
+### Hotspot Detection
 ![Hotspot Detection](screenshots/hotspot_detection.png)
-
-### Cloud Deployment
-
-![Deployment](screenshots/deployment.png)
 
 ---
 
