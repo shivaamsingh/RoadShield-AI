@@ -28,6 +28,7 @@ function App() {
 
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [weatherInfo, setWeatherInfo] = useState(null);
 
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") !== "light";
@@ -73,8 +74,17 @@ const fetchWeather = async () => {
         visibility: Math.round((data.visibility || 10000) / 1000),
         weather: weatherType,
       }));
+      setWeatherInfo({
+        weather: weatherType,
+        temperature: Math.round(data.main.temp),
+        visibility: Math.round((data.visibility || 10000) / 1000),
+});
 
-      alert("Weather data loaded successfully!");
+      alert(
+          `Weather: ${weatherType}
+          Temperature: ${Math.round(data.main.temp)}°C
+          Visibility: ${Math.round((data.visibility || 10000) / 1000)} km`
+);
     } catch (error) {
       console.error("Weather API Error:", error);
       console.error("Response:", error.response);
@@ -307,6 +317,7 @@ const fetchWeather = async () => {
             </div>
           </div>
 
+
           <button
             className="predict-btn"
             onClick={fetchWeather}
@@ -314,6 +325,27 @@ const fetchWeather = async () => {
           >
             🌦️ Auto Fill Weather
           </button>
+          {weatherInfo && (
+  <div className="result-card" style={{ marginTop: "15px" }}>
+    <h3>🌤 Current Weather</h3>
+
+    <p>
+      <strong>Weather:</strong> {weatherInfo.weather}
+    </p>
+
+    <p>
+      <strong>Temperature:</strong> {weatherInfo.temperature}°C
+    </p>
+
+    <p>
+      <strong>Visibility:</strong> {weatherInfo.visibility} km
+    </p>
+
+    <p style={{ color: "#22c55e" }}>
+      Updated from OpenWeather API
+    </p>
+  </div>
+)}
           <button
             className="predict-btn"
             onClick={predictRisk}
