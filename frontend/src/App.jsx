@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
-
 import axios from "axios";
 
 import HotspotMap from "./components/HotspotMap";
-
 import "./App.css";
-
 import RiskAnalytics from "./components/RiskAnalytics";
-
 
 function App() {
   const [formData, setFormData] = useState({
@@ -48,15 +44,15 @@ function App() {
     });
   };
 
-const fetchWeather = async () => {
-  try {
-    const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+  const fetchWeather = async () => {
+    try {
+      const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
-    console.log("API KEY:", apiKey);
+      console.log("API KEY:", apiKey);
 
-    const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${formData.city},IN&appid=${apiKey}&units=metric`
-    );
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${formData.city},IN&appid=${apiKey}&units=metric`
+      );
 
       const data = response.data;
 
@@ -78,13 +74,13 @@ const fetchWeather = async () => {
         weather: weatherType,
         temperature: Math.round(data.main.temp),
         visibility: Math.round((data.visibility || 10000) / 1000),
-});
+      });
 
       alert(
-          `Weather: ${weatherType}
+        `Weather: ${weatherType}
           Temperature: ${Math.round(data.main.temp)}°C
           Visibility: ${Math.round((data.visibility || 10000) / 1000)} km`
-);
+      );
     } catch (error) {
       console.error("Weather API Error:", error);
       console.error("Response:", error.response);
@@ -97,7 +93,8 @@ const fetchWeather = async () => {
       setLoading(true);
 
       const response = await axios.post(
-        "https://roadshield-ai.onrender.com/predict", {
+        "https://roadshield-ai.onrender.com/predict",
+        {
         city: formData.city,
         hour: Number(formData.hour),
         day_of_week: formData.day_of_week,
@@ -111,7 +108,7 @@ const fetchWeather = async () => {
         traffic_density: formData.traffic_density,
         vehicles_involved: Number(formData.vehicles_involved),
         is_peak_hour: Number(formData.is_peak_hour),
-      }
+        }
       );
 
       console.log("API Response:", response.data);
@@ -188,8 +185,6 @@ const fetchWeather = async () => {
             View API Documentation
           </a>
         </div>
-
-
         <div className="stats">
           <div className="stat-card">
             <h2>20,000+</h2>
@@ -316,8 +311,6 @@ const fetchWeather = async () => {
               />
             </div>
           </div>
-
-
           <button
             className="predict-btn"
             onClick={fetchWeather}
@@ -326,26 +319,26 @@ const fetchWeather = async () => {
             🌦️ Auto Fill Weather
           </button>
           {weatherInfo && (
-  <div className="result-card" style={{ marginTop: "15px" }}>
-    <h3>🌤 Current Weather</h3>
+            <div className="result-card" style={{ marginTop: "15px" }}>
+              <h3>🌤 Current Weather</h3>
 
-    <p>
-      <strong>Weather:</strong> {weatherInfo.weather}
-    </p>
+              <p>
+                <strong>Weather:</strong> {weatherInfo.weather}
+              </p>
 
-    <p>
-      <strong>Temperature:</strong> {weatherInfo.temperature}°C
-    </p>
+              <p>
+                <strong>Temperature:</strong> {weatherInfo.temperature}°C
+              </p>
 
-    <p>
-      <strong>Visibility:</strong> {weatherInfo.visibility} km
-    </p>
+              <p>
+                <strong>Visibility:</strong> {weatherInfo.visibility} km
+              </p>
 
-    <p style={{ color: "#22c55e" }}>
-      Updated from OpenWeather API
-    </p>
-  </div>
-)}
+              <p style={{ color: "#22c55e" }}>
+                Updated from OpenWeather API
+              </p>
+            </div>
+          )}
           <button
             className="predict-btn"
             onClick={predictRisk}
@@ -382,6 +375,24 @@ const fetchWeather = async () => {
                     textAlign: "left",
                   }}
                 >
+                  🤖 Why This Risk?
+                </h3>
+
+                <p
+                  style={{
+                    textAlign: "left",
+                    lineHeight: "1.8",
+                  }}
+                >
+                  {result.explanation}
+                </p>
+
+                <h3
+                  style={{
+                    marginTop: "20px",
+                    textAlign: "left",
+                  }}
+                >
                   🤖 AI Safety Recommendations
                 </h3>
 
@@ -399,16 +410,9 @@ const fetchWeather = async () => {
               </div>
             </div>
           )}
-
-
-
-
-
         </div>
         <RiskAnalytics />
-        <div className="footer">
-          Built with React • FastAPI • Scikit-Learn • Render
-        </div>
+
         <div className="card" style={{ marginTop: "30px" }}>
           <h2>🗺️ Accident Hotspot Map</h2>
           <p>
@@ -417,6 +421,10 @@ const fetchWeather = async () => {
           </p>
 
           <HotspotMap />
+        </div>
+
+        <div className="footer">
+          Built with React • FastAPI • Scikit-Learn • Render
         </div>
       </div>
     </>
