@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from backend.model_loader import model
 from backend.schemas import RiskInput
 from fastapi.middleware.cors import CORSMiddleware
+from backend.hotspots import hotspots
+
+
 
 app = FastAPI(
     title="RoadShield AI",
@@ -17,12 +20,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
 def home():
     return {
         "message": "RoadShield AI API Running"
     }
+
 
 
 @app.post("/predict")
@@ -65,3 +68,6 @@ from backend.encoders import (
     WEATHER_MAP,
     TRAFFIC_MAP
 )
+@app.get("/hotspots")
+def get_hotspots():
+    return hotspots
