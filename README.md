@@ -123,6 +123,19 @@ RoadShield-AI/
 ```
 
 ---
+## Screenshots
+
+### API Documentation
+![API Docs](screenshots/api_docs.png)
+
+### Risk Prediction
+![Prediction](screenshots/prediction_result.png)
+
+### Hotspot Detection
+![Hotspot](screenshots/hotspot_detection.png)
+
+### Deployment
+![Deployment](screenshots/deployment.png)
 
 ## Project Status
 
