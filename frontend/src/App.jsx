@@ -6,6 +6,8 @@ import HotspotMap from "./components/HotspotMap";
 
 import "./App.css";
 
+import RiskAnalytics from "./components/RiskAnalytics";
+
 function App() {
   const [formData, setFormData] = useState({
     city: "Delhi",
@@ -299,10 +301,9 @@ function App() {
           </div>
         )}
       </div>
-
+      <RiskAnalytics />
       <div className="footer">
         Built with React • FastAPI • Scikit-Learn • Render
-      </div>
       </div>
       <div className="card" style={{ marginTop: "30px" }}>
         <h2>🗺️ Accident Hotspot Map</h2>
@@ -312,6 +313,7 @@ function App() {
         </p>
 
         <HotspotMap />
+      </div>
       </div>
     </>
   );
