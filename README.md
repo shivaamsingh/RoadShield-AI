@@ -9,20 +9,27 @@ RoadShield AI is a machine learning-based road safety platform that analyzes acc
 The project aims to support road safety analysis, smart city planning, and accident prevention through predictive analytics and geospatial insights.
 
 ---
+## Key Achievements
+
+- Built and deployed a full-stack AI application using React and FastAPI
+- Achieved an R² Score of 0.88 using Random Forest Regression
+- Developed and deployed REST APIs on Render
+- Built a responsive dashboard with Dark/Light mode support
+- Integrated frontend and backend through real-time risk prediction APIs
 
 ## Live Demo
 
 ### Frontend Application
 
-https://road-shield-odtoybjiy-shiivamsingh.vercel.app
+[Live Demo](https://road-shield-odtoybjiy-shiivamsingh.vercel.app)
 
 ### Backend API
 
-https://roadshield-ai.onrender.com
+[Backend API](https://roadshield-ai.onrender.com)
 
 ### API Documentation
 
-https://roadshield-ai.onrender.com/docs
+[Swagger Docs](https://roadshield-ai.onrender.com/docs)
 
 ---
 
@@ -219,6 +226,8 @@ RoadShield-AI/
 * React
 * Vite
 * Axios
+* Modern Responsive UI
+* Dark / Light Mode
 
 ### Visualization
 
@@ -237,7 +246,9 @@ RoadShield-AI/
 
 B.Tech CSE (AI & ML)
 
-GitHub: https://github.com/shivaamsingh
+GitHub Profile: https://github.com/shivaamsingh
+
+Project Repository: https://github.com/shivaamsingh/RoadShield-AI
 
 ---
 
