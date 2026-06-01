@@ -55,168 +55,199 @@ function App() {
       setResult(response.data);
     } catch (error) {
       console.error(error);
-      alert("Prediction failed");
+      alert("Prediction Failed");
     } finally {
       setLoading(false);
     }
   };
 
+  const getRiskClass = () => {
+    if (!result) return "";
+
+    if (result.risk_level === "Low") return "low";
+    if (result.risk_level === "Medium") return "medium";
+
+    return "high";
+  };
+
   return (
-    <div style={{ padding: "30px", maxWidth: "600px" }}>
-      <h1>🚦 RoadShield AI</h1>
-      <h3>Road Risk Prediction System</h3>
+    <div className="container">
+      <div className="hero">
+        <h1>🚦 RoadShield AI</h1>
+        <p>AI-Powered Road Risk Prediction & Safety Analytics</p>
 
-      <br />
-
-      <label>City</label>
-      <br />
-      <select
-        name="city"
-        value={formData.city}
-        onChange={handleChange}
-      >
-        <option>Delhi</option>
-        <option>Mumbai</option>
-        <option>Bangalore</option>
-        <option>Chennai</option>
-        <option>Hyderabad</option>
-        <option>Kolkata</option>
-        <option>Pune</option>
-        <option>Chandigarh</option>
-      </select>
-
-      <br />
-      <br />
-
-      <label>Weather</label>
-      <br />
-      <select
-        name="weather"
-        value={formData.weather}
-        onChange={handleChange}
-      >
-        <option>clear</option>
-        <option>fog</option>
-        <option>rain</option>
-      </select>
-
-      <br />
-      <br />
-
-      <label>Road Type</label>
-      <br />
-      <select
-        name="road_type"
-        value={formData.road_type}
-        onChange={handleChange}
-      >
-        <option>urban</option>
-        <option>highway</option>
-        <option>rural</option>
-      </select>
-
-      <br />
-      <br />
-
-      <label>Traffic Density</label>
-      <br />
-      <select
-        name="traffic_density"
-        value={formData.traffic_density}
-        onChange={handleChange}
-      >
-        <option>high</option>
-        <option>medium</option>
-        <option>low</option>
-      </select>
-
-      <br />
-      <br />
-
-      <label>Hour</label>
-      <br />
-      <input
-        type="number"
-        name="hour"
-        value={formData.hour}
-        onChange={handleChange}
-      />
-
-      <br />
-      <br />
-
-      <label>Visibility</label>
-      <br />
-      <input
-        type="number"
-        name="visibility"
-        value={formData.visibility}
-        onChange={handleChange}
-      />
-
-      <br />
-      <br />
-
-      <label>Temperature</label>
-      <br />
-      <input
-        type="number"
-        name="temperature"
-        value={formData.temperature}
-        onChange={handleChange}
-      />
-
-      <br />
-      <br />
-
-      <label>Lanes</label>
-      <br />
-      <input
-        type="number"
-        name="lanes"
-        value={formData.lanes}
-        onChange={handleChange}
-      />
-
-      <br />
-      <br />
-
-      <label>Vehicles Involved</label>
-      <br />
-      <input
-        type="number"
-        name="vehicles_involved"
-        value={formData.vehicles_involved}
-        onChange={handleChange}
-      />
-
-      <br />
-      <br />
-
-      <button onClick={predictRisk}>
-        {loading ? "Predicting..." : "Predict Risk"}
-      </button>
-
-      {result && (
-        <div
-          style={{
-            marginTop: "30px",
-            padding: "15px",
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-          }}
+        <a
+          href="https://roadshield-ai.onrender.com/docs"
+          target="_blank"
+          rel="noreferrer"
+          className="docs-btn"
         >
-          <h2>Prediction Result</h2>
+          View API Documentation
+        </a>
+      </div>
 
-          <p>
-            <strong>Risk Score:</strong> {result.risk_score}
-          </p>
-
-          <p>
-            <strong>Risk Level:</strong> {result.risk_level}
-          </p>
+      <div className="stats">
+        <div className="stat-card">
+          <h2>20,000+</h2>
+          <p>Accident Records</p>
         </div>
-      )}
+
+        <div className="stat-card">
+          <h2>0.88</h2>
+          <p>R² Score</p>
+        </div>
+
+        <div className="stat-card">
+          <h2>8+</h2>
+          <p>Indian Cities</p>
+        </div>
+      </div>
+
+      <div className="card">
+        <div className="grid">
+          <div>
+            <label>City</label>
+            <select
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+            >
+              <option>Delhi</option>
+              <option>Mumbai</option>
+              <option>Bangalore</option>
+              <option>Chennai</option>
+              <option>Hyderabad</option>
+              <option>Kolkata</option>
+              <option>Pune</option>
+              <option>Chandigarh</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Weather</label>
+            <select
+              name="weather"
+              value={formData.weather}
+              onChange={handleChange}
+            >
+              <option>clear</option>
+              <option>fog</option>
+              <option>rain</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Road Type</label>
+            <select
+              name="road_type"
+              value={formData.road_type}
+              onChange={handleChange}
+            >
+              <option>urban</option>
+              <option>highway</option>
+              <option>rural</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Traffic Density</label>
+            <select
+              name="traffic_density"
+              value={formData.traffic_density}
+              onChange={handleChange}
+            >
+              <option>high</option>
+              <option>medium</option>
+              <option>low</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Hour</label>
+            <input
+              type="number"
+              name="hour"
+              value={formData.hour}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            <label>Visibility</label>
+            <input
+              type="number"
+              name="visibility"
+              value={formData.visibility}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            <label>Temperature</label>
+            <input
+              type="number"
+              name="temperature"
+              value={formData.temperature}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            <label>Lanes</label>
+            <input
+              type="number"
+              name="lanes"
+              value={formData.lanes}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            <label>Vehicles Involved</label>
+            <input
+              type="number"
+              name="vehicles_involved"
+              value={formData.vehicles_involved}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <button
+          className="predict-btn"
+          onClick={predictRisk}
+          disabled={loading}
+        >
+          {loading ? "Predicting..." : "Predict Risk"}
+        </button>
+
+        {result && (
+          <div className="result-card">
+            <h2>Prediction Result</h2>
+
+            <h3>
+              Risk Score: {(result.risk_score * 100).toFixed(1)}%
+            </h3>
+
+            <div className="progress">
+              <div
+                className="progress-fill"
+                style={{
+                  width: `${result.risk_score * 100}%`,
+                }}
+              ></div>
+            </div>
+
+            <div className={`badge ${getRiskClass()}`}>
+              {result.risk_level}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="footer">
+        Built with React • FastAPI • Scikit-Learn • Render
+      </div>
     </div>
   );
 }
