@@ -69,6 +69,7 @@ The project combines Machine Learning, FastAPI, React, and Geospatial Visualizat
 * Real-Time Risk Prediction
 * Public Cloud Deployment (Render + Vercel)
 * Swagger API Documentation
+* AI Safety Recommendations
 
 ---
 
