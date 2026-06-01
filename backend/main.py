@@ -59,57 +59,34 @@ def predict(data: RiskInput):
 
     if data.weather == "rain":
         recommendations.append(
-        "Reduce speed and maintain safe braking distance."
-    )
+            "Reduce speed and maintain safe braking distance."
+        )
 
     if data.visibility < 5:
         recommendations.append(
-        "Use headlights and stay alert in low visibility."
-    )
+            "Use headlights and stay alert in low visibility."
+        )
 
     if data.traffic_density == "high":
         recommendations.append(
-        "Avoid sudden lane changes in dense traffic."
-    )
+            "Avoid sudden lane changes in dense traffic."
+        )
 
     if data.is_peak_hour == 1:
         recommendations.append(
-        "Expect congestion and allow extra travel time."
-    )
+            "Expect congestion and allow extra travel time."
+        )
 
     if level == "High":
         recommendations.append(
-        "Consider postponing travel or choosing an alternate route."
-    )
+            "Consider postponing travel or choosing an alternate route."
+        )
 
     if len(recommendations) == 0:
         recommendations.append(
-        "Road conditions appear relatively safe."
-    )
-    explanation = []
+            "Road conditions appear relatively safe."
+        )
 
-    if data.weather == "rain":
-        explanation.append("rainy weather")
-
-    if data.visibility < 5:
-        explanation.append(f"low visibility ({data.visibility} km)")
-
-    if data.traffic_density == "high":
-        explanation.append("high traffic density")
-
-    if data.is_peak_hour == 1:
-        explanation.append("peak-hour traffic")
-
-    if  explanation:
-        explanation_text = (
-        f"This route has a {level.lower()} accident risk because "
-        + ", ".join(explanation)
-        + " increase the likelihood of road incidents."
-    )
-    else:
-        explanation_text = (
-        "Current conditions indicate relatively safe travel."
-    )
     explanation = []
 
     if data.weather == "rain":
@@ -126,21 +103,21 @@ def predict(data: RiskInput):
 
     if explanation:
         explanation_text = (
-        f"This route has a {level.lower()} accident risk because "
-        + ", ".join(explanation)
-        + " increase the likelihood of road incidents."
-    )
+            f"This route has a {level.lower()} accident risk because "
+            + ", ".join(explanation)
+            + " are significant factors that increase the likelihood of road incidents."
+        )
     else:
         explanation_text = (
-        "Current conditions indicate relatively safe travel."
-    )
-    
+            "Current conditions indicate relatively safe travel."
+        )
+
     return {
-    "risk_score": round(risk, 3),
-    "risk_level": level,
-    "recommendations": recommendations,
-    "explanation": explanation_text
-}
+        "risk_score": round(risk, 3),
+        "risk_level": level,
+        "recommendations": recommendations,
+        "explanation": explanation_text
+    }
 
 from backend.encoders import (
     CITY_MAP,
