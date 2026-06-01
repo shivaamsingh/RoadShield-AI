@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import axios from "axios";
+
 import "./App.css";
 
 function App() {
@@ -22,6 +24,17 @@ function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") !== "light";
+  });
+
+  useEffect(() => {
+    const theme = darkMode ? "dark" : "light";
+    localStorage.setItem("theme", theme);
+    document.body.classList.remove("dark", "light");
+    document.body.classList.add(theme);
+  }, [darkMode]);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -34,22 +47,21 @@ function App() {
       setLoading(true);
 
       const response = await axios.post(
-        "https://roadshield-ai.onrender.com/predict",
-        {
-          city: formData.city,
-          hour: Number(formData.hour),
-          day_of_week: formData.day_of_week,
-          is_weekend: Number(formData.is_weekend),
-          road_type: formData.road_type,
-          lanes: Number(formData.lanes),
-          traffic_signal: Number(formData.traffic_signal),
-          weather: formData.weather,
-          visibility: Number(formData.visibility),
-          temperature: Number(formData.temperature),
-          traffic_density: formData.traffic_density,
-          vehicles_involved: Number(formData.vehicles_involved),
-          is_peak_hour: Number(formData.is_peak_hour),
-        }
+        "https://roadshield-ai.onrender.com/predict", {
+        city: formData.city,
+        hour: Number(formData.hour),
+        day_of_week: formData.day_of_week,
+        is_weekend: Number(formData.is_weekend),
+        road_type: formData.road_type,
+        lanes: Number(formData.lanes),
+        traffic_signal: Number(formData.traffic_signal),
+        weather: formData.weather,
+        visibility: Number(formData.visibility),
+        temperature: Number(formData.temperature),
+        traffic_density: formData.traffic_density,
+        vehicles_involved: Number(formData.vehicles_involved),
+        is_peak_hour: Number(formData.is_peak_hour),
+      }
       );
 
       setResult(response.data);
@@ -71,7 +83,46 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className={`container ${darkMode ? "dark" : "light"}`}>
+      <button
+        className="theme-toggle-fab"
+        onClick={() => setDarkMode(!darkMode)}
+        title={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+        aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+      >
+        {darkMode ? (
+          <svg
+            className="theme-toggle-icon"
+            viewBox="0 0 24 24"
+            role="img"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.6" />
+            <path
+              d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+            />
+          </svg>
+        ) : (
+          <svg
+            className="theme-toggle-icon"
+            viewBox="0 0 24 24"
+            role="img"
+            aria-hidden="true"
+          >
+            <path
+              d="M20.6 14.6A8 8 0 0 1 9.4 3.4a9 9 0 1 0 11.2 11.2Z"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
+      </button>
       <div className="hero">
         <h1>🚦 RoadShield AI</h1>
         <p>AI-Powered Road Risk Prediction & Safety Analytics</p>
@@ -85,6 +136,7 @@ function App() {
           View API Documentation
         </a>
       </div>
+
 
       <div className="stats">
         <div className="stat-card">
