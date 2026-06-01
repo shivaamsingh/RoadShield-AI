@@ -1,35 +1,49 @@
-# RoadShield AI
+# RoadShield AI 🚦
 
 AI-powered Road Risk Prediction and Hotspot Detection System for Indian Roads.
 
-## Overview
-
-RoadShield AI is a machine learning-based road safety platform that analyzes accident-related factors such as weather conditions, traffic density, visibility, road type, temperature, and peak-hour traffic patterns to estimate road risk levels and identify accident hotspots.
-
-The project aims to support road safety analysis, smart city planning, and accident prevention through predictive analytics and geospatial insights.
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![React](https://img.shields.io/badge/React-Frontend-61dafb)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
+![Vercel](https://img.shields.io/badge/Vercel-Deployed-black)
+![Render](https://img.shields.io/badge/Render-API-purple)
 
 ---
+
+## Overview
+
+RoadShield AI is a machine learning-powered road safety platform that analyzes accident-related factors such as weather conditions, traffic density, visibility, road type, temperature, and peak-hour traffic patterns to estimate road risk levels and identify accident hotspots.
+
+The project combines Machine Learning, FastAPI, React, and Geospatial Visualization to support road safety analysis, smart city planning, and accident prevention through predictive analytics.
+
+---
+
 ## Key Achievements
 
-- Built and deployed a full-stack AI application using React and FastAPI
-- Achieved an R² Score of 0.88 using Random Forest Regression
-- Developed and deployed REST APIs on Render
-- Built a responsive dashboard with Dark/Light mode support
-- Integrated frontend and backend through real-time risk prediction APIs
+* Built and deployed a full-stack AI application using React and FastAPI
+* Achieved an **R² Score of 0.88** using Random Forest Regression
+* Developed and deployed REST APIs on Render
+* Built a responsive dashboard with Dark/Light mode support
+* Integrated frontend and backend through real-time prediction APIs
+* Added interactive accident hotspot visualization using React Leaflet
+* Deployed frontend on Vercel and backend on Render
+
+---
 
 ## Live Demo
 
 ### Frontend Application
 
-[Live Demo](https://road-shield-odtoybjiy-shiivamsingh.vercel.app)
+🔗 https://road-shield-odtoybjiy-shiivamsingh.vercel.app
 
 ### Backend API
 
-[Backend API](https://roadshield-ai.onrender.com)
+🔗 https://roadshield-ai.onrender.com
 
 ### API Documentation
 
-[Swagger Docs](https://roadshield-ai.onrender.com/docs)
+🔗 https://roadshield-ai.onrender.com/docs
 
 ---
 
@@ -37,11 +51,13 @@ The project aims to support road safety analysis, smart city planning, and accid
 
 * Road Risk Score Prediction using Machine Learning
 * Accident Hotspot Detection using Clustering
+* Interactive Accident Hotspot Map
+* Interactive Geospatial Visualization using React Leaflet
 * Exploratory Data Analysis (EDA)
 * Feature Importance Analysis
-* Interactive Geospatial Visualization
 * FastAPI REST API
 * React Frontend Dashboard
+* Dark / Light Mode Support
 * Real-Time Risk Prediction
 * Public Cloud Deployment (Render + Vercel)
 * Swagger API Documentation
@@ -51,10 +67,10 @@ The project aims to support road safety analysis, smart city planning, and accid
 ## Dataset
 
 * Indian Road Accident Dataset (2022–2025)
-* 20,000 accident records
-* Multiple Indian cities
-* Weather, traffic, visibility, road infrastructure, and temporal features
-* Risk score information
+* 20,000 Accident Records
+* Multiple Indian Cities
+* Weather, Traffic, Visibility, Road Infrastructure, and Temporal Features
+* Risk Score Information
 
 ---
 
@@ -66,8 +82,10 @@ The project aims to support road safety analysis, smart city planning, and accid
 
 ### Performance
 
-* **R² Score:** 0.88
-* **Mean Absolute Error (MAE):** 0.056
+| Metric   | Value |
+| -------- | ----- |
+| R² Score | 0.88  |
+| MAE      | 0.056 |
 
 ### Most Important Features
 
@@ -117,18 +135,23 @@ The project aims to support road safety analysis, smart city planning, and accid
 ## Screenshots
 
 ### Dashboard (Dark Mode)
+
 ![Dark Dashboard](screenshots/prediction_dashboard_dark.png)
 
 ### Dashboard (Light Mode)
+
 ![Light Dashboard](screenshots/prediction_dashboard_light.png)
 
 ### API Documentation
+
 ![API Docs](screenshots/api_docs.png)
 
-### Hotspot Detection
+### Accident Hotspot Detection
+
 ![Hotspot Detection](screenshots/hotspot_detection.png)
 
 ### Interactive Hotspot Map
+
 ![Hotspot Map](screenshots/hotspot_map.png)
 
 ---
@@ -148,12 +171,11 @@ RoadShield-AI/
 ├── frontend/
 │   ├── src/
 │   ├── public/
+│   ├── components/
 │   └── package.json
 │
 ├── data/
-│
 ├── docs/
-│
 ├── models/
 │   └── risk_model.pkl
 │
@@ -167,6 +189,65 @@ RoadShield-AI/
 ├── render.yaml
 ├── README.md
 └── requirements.txt
+```
+
+---
+
+## Local Setup
+
+### Clone Repository
+
+```bash
+git clone https://github.com/shivaamsingh/RoadShield-AI.git
+cd RoadShield-AI
+```
+
+### Backend Setup
+
+```bash
+pip install -r requirements.txt
+uvicorn backend.main:app --reload
+```
+
+Backend:
+
+```text
+http://localhost:8000
+```
+
+API Documentation:
+
+```text
+http://localhost:8000/docs
+```
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm install react-leaflet leaflet
+npm run dev
+```
+
+Frontend:
+
+```text
+http://localhost:5173
+```
+
+### Production Deployment
+
+Frontend (Vercel)
+
+```text
+https://road-shield-odtoybjiy-shiivamsingh.vercel.app
+```
+
+Backend (Render)
+
+```text
+https://roadshield-ai.onrender.com
 ```
 
 ---
@@ -185,6 +266,10 @@ RoadShield-AI/
 
 ✅ React Frontend Dashboard
 
+✅ Interactive Hotspot Map
+
+✅ Dark / Light Mode Support
+
 ✅ Public API Deployment
 
 ✅ Swagger API Documentation
@@ -195,6 +280,8 @@ RoadShield-AI/
 
 🔄 Weather API Integration
 
+🔄 Live Traffic Analytics
+
 ---
 
 ## Future Improvements
@@ -202,11 +289,13 @@ RoadShield-AI/
 * Real-time Weather API Integration
 * Live Traffic Data Integration
 * Route-Level Risk Prediction
-* City-Wise Risk Analytics
+* City-Wise Risk Analytics Dashboard
 * GPS-Based Risk Monitoring
 * Mobile Application
 * Docker Deployment
 * CI/CD Pipeline
+* User Authentication
+* Historical Risk Trend Analysis
 
 ---
 
@@ -222,19 +311,21 @@ RoadShield-AI/
 
 * Pandas
 * NumPy
-* Scikit-learn
+* Scikit-Learn
 
 ### Frontend
 
 * React
 * Vite
 * Axios
+* React Leaflet
 * Modern Responsive UI
 * Dark / Light Mode
 
 ### Visualization
 
 * Folium
+* React Leaflet
 
 ### Deployment
 
@@ -245,14 +336,16 @@ RoadShield-AI/
 
 ## Author
 
-**Shivam Singh**
+### Shivam Singh
 
 B.Tech CSE (AI & ML)
 
-GitHub Profile: https://github.com/shivaamsingh
+GitHub Profile: [@shivaamsingh](https://github.com/shivaamsingh)
 
-Project Repository: https://github.com/shivaamsingh/RoadShield-AI
+Project Repository: [RoadShield-AI](https://github.com/shivaamsingh/RoadShield-AI)
 
 ---
 
-If you found this project useful, consider giving it a ⭐ on GitHub.
+⭐ If you found this project useful, please consider starring the repository.
+
+Contributions, suggestions, and feedback are welcome.
