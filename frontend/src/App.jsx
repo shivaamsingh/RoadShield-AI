@@ -47,6 +47,41 @@ function App() {
     });
   };
 
+const fetchWeather = async () => {
+  try {
+    const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+
+    console.log("API KEY:", apiKey);
+
+    const response = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${formData.city},IN&appid=${apiKey}&units=metric`
+    );
+
+      const data = response.data;
+
+      let weatherType = "clear";
+
+      if (data.weather[0].main.toLowerCase().includes("rain")) {
+        weatherType = "rain";
+      } else if (data.weather[0].main.toLowerCase().includes("fog")) {
+        weatherType = "fog";
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        temperature: Math.round(data.main.temp),
+        visibility: Math.round((data.visibility || 10000) / 1000),
+        weather: weatherType,
+      }));
+
+      alert("Weather data loaded successfully!");
+    } catch (error) {
+      console.error("Weather API Error:", error);
+      console.error("Response:", error.response);
+      alert("Unable to fetch weather data.");
+    }
+  };
+
   const predictRisk = async () => {
     try {
       setLoading(true);
@@ -69,7 +104,7 @@ function App() {
       }
       );
 
-    console.log("API Response:", response.data);
+      console.log("API Response:", response.data);
       setResult(response.data);
     } catch (error) {
       console.error(error);
@@ -272,6 +307,13 @@ function App() {
             </div>
           </div>
 
+          <button
+            className="predict-btn"
+            onClick={fetchWeather}
+            style={{ marginBottom: "12px" }}
+          >
+            🌦️ Auto Fill Weather
+          </button>
           <button
             className="predict-btn"
             onClick={predictRisk}
