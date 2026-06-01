@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 
+import HotspotMap from "./components/HotspotMap";
+
 import "./App.css";
 
 function App() {
@@ -83,7 +85,8 @@ function App() {
   };
 
   return (
-    <div className={`container ${darkMode ? "dark" : "light"}`}>
+    <>
+      <div className={`container ${darkMode ? "dark" : "light"}`}>
       <button
         className="theme-toggle-fab"
         onClick={() => setDarkMode(!darkMode)}
@@ -300,7 +303,17 @@ function App() {
       <div className="footer">
         Built with React • FastAPI • Scikit-Learn • Render
       </div>
-    </div>
+      </div>
+      <div className="card" style={{ marginTop: "30px" }}>
+        <h2>🗺️ Accident Hotspot Map</h2>
+        <p>
+          High-risk accident-prone locations identified using
+          clustering analysis.
+        </p>
+
+        <HotspotMap />
+      </div>
+    </>
   );
 }
 
