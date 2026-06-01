@@ -70,6 +70,8 @@ The project combines Machine Learning, FastAPI, React, and Geospatial Visualizat
 * Public Cloud Deployment (Render + Vercel)
 * Swagger API Documentation
 * AI Safety Recommendations
+* Live Weather Integration (OpenWeather API)
+* Weather-Aware Risk Prediction
 
 ---
 
@@ -135,7 +137,13 @@ The project combines Machine Learning, FastAPI, React, and Geospatial Visualizat
 ```json
 {
   "risk_score": 0.603,
-  "risk_level": "Medium"
+  "risk_level": "Medium",
+  "recommendations": [
+    "Reduce speed and maintain safe braking distance.",
+    "Use headlights and stay alert in low visibility.",
+    "Avoid sudden lane changes in dense traffic.",
+    "Expect congestion and allow extra travel time."
+  ]
 }
 ```
 
@@ -289,9 +297,9 @@ https://roadshield-ai.onrender.com
 
 ✅ Frontend Deployment (Vercel)
 
-🔄 Real-Time Route Risk Prediction
+✅ Weather API Integration
 
-🔄 Weather API Integration
+🔄 Real-Time Route Risk Prediction
 
 🔄 Live Traffic Analytics
 
@@ -299,7 +307,6 @@ https://roadshield-ai.onrender.com
 
 ## Future Improvements
 
-* Real-time Weather API Integration
 * Live Traffic Data Integration
 * Route-Level Risk Prediction
 * City-Wise Risk Analytics Dashboard
