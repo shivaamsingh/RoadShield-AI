@@ -154,6 +154,10 @@ The project combines Machine Learning, FastAPI, React, and Geospatial Visualizat
 
 ![Hotspot Map](screenshots/hotspot_map.png)
 
+### Risk Analytics Dashboard
+
+![Risk Analytics](screenshots/risk_analytics.png)
+
 ---
 
 ## Project Structure
