@@ -113,11 +113,17 @@ def predict(data: RiskInput):
         )
 
     return {
-        "risk_score": round(risk, 3),
-        "risk_level": level,
-        "recommendations": recommendations,
-        "explanation": explanation_text
+    "risk_score": round(risk, 3),
+    "risk_level": level,
+    "recommendations": recommendations,
+    "explanation": explanation_text,
+    "risk_factors": {
+        "Visibility": "30.4%",
+        "Traffic Density": "28.2%",
+        "Weather": "23.1%",
+        "Peak Hour": "8.0%"
     }
+}
 
 from backend.encoders import (
     CITY_MAP,
