@@ -95,19 +95,19 @@ function App() {
       const response = await axios.post(
         "https://roadshield-ai.onrender.com/predict",
         {
-        city: formData.city,
-        hour: Number(formData.hour),
-        day_of_week: formData.day_of_week,
-        is_weekend: Number(formData.is_weekend),
-        road_type: formData.road_type,
-        lanes: Number(formData.lanes),
-        traffic_signal: Number(formData.traffic_signal),
-        weather: formData.weather,
-        visibility: Number(formData.visibility),
-        temperature: Number(formData.temperature),
-        traffic_density: formData.traffic_density,
-        vehicles_involved: Number(formData.vehicles_involved),
-        is_peak_hour: Number(formData.is_peak_hour),
+          city: formData.city,
+          hour: Number(formData.hour),
+          day_of_week: formData.day_of_week,
+          is_weekend: Number(formData.is_weekend),
+          road_type: formData.road_type,
+          lanes: Number(formData.lanes),
+          traffic_signal: Number(formData.traffic_signal),
+          weather: formData.weather,
+          visibility: Number(formData.visibility),
+          temperature: Number(formData.temperature),
+          traffic_density: formData.traffic_density,
+          vehicles_involved: Number(formData.vehicles_involved),
+          is_peak_hour: Number(formData.is_peak_hour),
         }
       );
 
@@ -386,6 +386,28 @@ function App() {
                 >
                   {result.explanation}
                 </p>
+                <div
+                  style={{
+                    marginTop: "20px",
+                    textAlign: "left",
+                  }}
+                >
+                  <h3>📊 Risk Factor Breakdown</h3>
+
+                  {result.risk_factors && (
+                    <ul
+                      style={{
+                        paddingLeft: "20px",
+                        lineHeight: "1.8",
+                      }}
+                    >
+                      <li>👁 Visibility: {result.risk_factors["Visibility"]}</li>
+                      <li>🚗 Traffic Density: {result.risk_factors["Traffic Density"]}</li>
+                      <li>🌧 Weather: {result.risk_factors["Weather"]}</li>
+                      <li>🕒 Peak Hour: {result.risk_factors["Peak Hour"]}</li>
+                    </ul>
+                  )}
+                </div>
 
                 <h3
                   style={{
