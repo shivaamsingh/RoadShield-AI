@@ -28,6 +28,10 @@ The project combines Machine Learning, FastAPI, React, and Geospatial Visualizat
 * Integrated frontend and backend through real-time prediction APIs
 * Added interactive accident hotspot visualization using React Leaflet
 * Deployed frontend on Vercel and backend on Render
+* Implemented Explainable AI using risk-factor attribution
+* Integrated real-time weather intelligence using OpenWeather API
+* Generated contextual AI safety recommendations
+* Built interpretable accident-risk explanations for end users
 
 ---
 
@@ -72,6 +76,8 @@ The project combines Machine Learning, FastAPI, React, and Geospatial Visualizat
 * AI Safety Recommendations
 * Live Weather Integration (OpenWeather API)
 * Weather-Aware Risk Prediction
+* Risk Factor Breakdown (Explainable AI)
+* AI-Powered Risk Explanation Engine
 
 ---
 
@@ -140,10 +146,15 @@ The project combines Machine Learning, FastAPI, React, and Geospatial Visualizat
   "risk_level": "Medium",
   "recommendations": [
     "Reduce speed and maintain safe braking distance.",
-    "Use headlights and stay alert in low visibility.",
-    "Avoid sudden lane changes in dense traffic.",
-    "Expect congestion and allow extra travel time."
-  ]
+    "Use headlights and stay alert in low visibility."
+  ],
+  "explanation": "This route has a medium accident risk because rainy weather, low visibility (3 km), high traffic density, and peak-hour traffic are significant factors that increase the likelihood of road incidents.",
+  "risk_factors": {
+    "Visibility": "30.4%",
+    "Traffic Density": "28.2%",
+    "Weather": "23.1%",
+    "Peak Hour": "8.0%"
+  }
 }
 ```
 
@@ -298,6 +309,15 @@ https://roadshield-ai.onrender.com
 ✅ Frontend Deployment (Vercel)
 
 ✅ Weather API Integration
+
+✅ AI Safety Recommendations
+
+✅ AI Risk Explanation Engine
+
+✅ Risk Factor Breakdown (Explainable AI)
+
+✅ Live Weather Integration
+
 
 🔄 Real-Time Route Risk Prediction
 
